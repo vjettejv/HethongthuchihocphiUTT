@@ -1,0 +1,138 @@
+/* Login page — 2-column layout (Figma) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.loginPage {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  background: #e0f2fe;
+}
+
+.loginHero {
+  width: 60%;
+  background: #0a4d5c;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  box-sizing: border-box;
+}
+
+.loginHeroInner {
+  max-width: 36rem;
+}
+
+.loginHeroTitle {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(1.375rem, 2.8vw, 2.125rem);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-align: left;
+  border-bottom: 4px solid #ffffff;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+.loginFormColumn {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.loginFormCard {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
+}
+
+.loginFormTitle {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: left;
+}
+
+.loginFormCard .loginAlert {
+  margin: 0 0 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.loginForgotLink {
+  display: inline-block;
+  font-size: 0.8125rem;
+  color: #1677ff;
+  text-align: left;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.loginForgotLink:hover {
+  color: #4096ff;
+  text-decoration: underline;
+}
+
+.loginForgotWrap {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.loginSubmitBtn {
+  height: 2.75rem !important;
+  border-radius: 9999px !important;
+  background: #0891b2 !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.loginSubmitBtn:hover {
+  background: #0e7490 !important;
+  color: #ffffff !important;
+}
+
+.loginSubmitBtn:focus-visible {
+  outline: 2px solid #0891b2;
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .loginPage {
+    flex-direction: column;
+  }
+
+  .loginHero {
+    width: 100%;
+    min-height: 36vh;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .loginHeroTitle {
+    text-align: center;
+  }
+
+  .loginFormColumn {
+    width: 100%;
+    flex: 1;
+    padding: 1.5rem 1rem 2rem;
+  }
+}

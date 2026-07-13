@@ -1,0 +1,151 @@
+.app-shell-root {
+  min-height: 100vh;
+}
+
+.app-shell-sider {
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow: auto;
+  box-shadow: 4px 0 24px rgba(10, 77, 92, 0.18);
+}
+
+.app-shell-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell-brand {
+  color: #fff;
+  padding: 18px 20px 8px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.app-shell-role {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  padding: 0 20px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.app-shell-menu {
+  flex: 1;
+  border-inline-end: none !important;
+  background: transparent !important;
+}
+
+.app-shell-main {
+  margin-left: 240px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 56px;
+  line-height: 56px;
+  padding: 0 24px !important;
+  background: linear-gradient(105deg, #e0f7fa 0%, #b2ebf2 45%, #80deea 100%) !important;
+  border-bottom: 1px solid rgba(10, 77, 92, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+.app-shell-header-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #0a4d5c;
+  letter-spacing: 0.02em;
+}
+
+.app-shell-content {
+  flex: 1;
+  padding: 20px 24px 28px;
+  background: #e0f7fa;
+}
+
+.app-shell-page-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 24px rgba(10, 77, 92, 0.08);
+  min-height: calc(100vh - 56px - 48px);
+  box-sizing: border-box;
+}
+
+.app-btn-edit.ant-btn-default {
+  color: #0f766e !important;
+  border-color: #2dd4bf !important;
+  background: #ccfbf1 !important;
+}
+
+.app-btn-edit.ant-btn-default:hover {
+  color: #134e4a !important;
+  border-color: #14b8a6 !important;
+  background: #99f6e4 !important;
+}
+
+.app-metric-row {
+  margin-bottom: 24px;
+}
+
+.app-metric-card {
+  border-radius: 16px;
+  padding: 20px 22px;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.app-metric-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.75);
+  margin-bottom: 8px;
+}
+
+.app-metric-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.app-metric-card--amber {
+  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+}
+
+.app-metric-card--emerald {
+  background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
+}
+
+.app-metric-card--sky {
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+}
+
+.app-metric-card--violet {
+  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
+}
+
+@media (max-width: 991px) {
+  .app-shell-sider {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  .app-shell-main {
+    margin-left: 0;
+  }
+}

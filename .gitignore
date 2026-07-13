@@ -1,0 +1,21 @@
+# Thư mục thư viện (Dependencies)
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Thư mục build của Frontend
+dist/
+frontend/dist/
+
+# Các file cấu hình môi trường bảo mật
+.env
+backend/.env
+frontend/.env
+
+# File cấu hình của Editor/IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
