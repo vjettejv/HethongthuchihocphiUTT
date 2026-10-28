@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: vjettejv/cnpm-backend:latest
+          image: vjettejv/cnpm-backend:a5ac5f4
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
