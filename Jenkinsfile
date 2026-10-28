@@ -5,7 +5,7 @@ pipeline {
         // ĐIỀN ĐÚNG USERNAME DOCKER HUB CỦA BẠN VÀO ĐÂY
         DOCKER_USER = 'vjettejv'
         IMAGE_NAME = "${DOCKER_USER}/cnpm-backend"
-        REGISTRY_CREDENTIALS = 'dockerhub-credentials'
+        REGISTRY_CREDENTIALS = 'dockerhub-credential'
     }
 
     stages {
