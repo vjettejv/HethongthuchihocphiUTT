@@ -23,7 +23,7 @@ app.use(
     credentials: true
   })
 );
-app.use(express.json()); 
+app.use(express.json());
 
 // Gắn route Auth vào đường dẫn /api/auth
 app.use('/api/auth', authRoutes);
@@ -40,18 +40,45 @@ app.use('/api/extensions', giaHanRoutes);
 app.use('/api/system', systemRoutes);
 
 app.get('/', (req, res) => {
-    res.json({ message: 'API Quản lý học phí đang chạy!' });
+  res.json({ message: 'API Quản lý học phí đang chạy!' });
+});
+// ==================== DEVOPS HEALTH & READINESS PROBES ====================
+// 1. Liveness Probe: Kiểm tra tiến trình web server còn sống
+app.get('/healthz', (req, res) => {
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
 });
 
+// 2. Readiness Probe: Kiểm tra kết nối tới MySQL
+app.get('/readyz', async (req, res) => {
+  try {
+    // Thực hiện query nhẹ kiểm tra kết nối DB pool
+    await db.query('SELECT 1');
+    res.status(200).json({
+      status: 'ready',
+      database: 'connected'
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: 'unready',
+      database: 'disconnected',
+      error: error.message
+    });
+  }
+});
+// =========================================================================
 // Ưu tiên chạy port 8080 để không bị kẹt
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {
-    console.log(`🚀 Server backend đang chạy tại http://localhost:${PORT}`);
-    try {
-        const { overdueInvoices, bannedStudents } = await runOverdueJobs();
-        console.log(`📅 Quá hạn hóa đơn: ${overdueInvoices}; khóa SV (hạn+15 ngày): ${bannedStudents}.`);
-    } catch (err) {
-        console.error('❌ Lỗi runOverdueJobs:', err.message);
-    }
-    startOverdueCron();
+  console.log(`🚀 Server backend đang chạy tại http://localhost:${PORT}`);
+  try {
+    const { overdueInvoices, bannedStudents } = await runOverdueJobs();
+    console.log(`📅 Quá hạn hóa đơn: ${overdueInvoices}; khóa SV (hạn+15 ngày): ${bannedStudents}.`);
+  } catch (err) {
+    console.error('❌ Lỗi runOverdueJobs:', err.message);
+  }
+  startOverdueCron();
 });
